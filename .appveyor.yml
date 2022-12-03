@@ -10,7 +10,8 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
-  - java -jar ./artifacts/app-order.jar
+  - cd artifacts
+  - java -jar app-order.jar
 
 build_script:
   - chmod +x gradlew
