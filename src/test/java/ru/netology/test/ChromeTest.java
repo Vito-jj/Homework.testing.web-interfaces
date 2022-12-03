@@ -7,18 +7,25 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.params.shadow.com.univocity.parsers.conversions.Conversions.trim;
+
 
 
 class ChromeTest {
 
-    WebDriver driver;
+    static WebDriver driver;
 
     @BeforeAll
     static void setupAll() {
         System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
     }
 
     @BeforeEach
