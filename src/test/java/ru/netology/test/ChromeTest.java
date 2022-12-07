@@ -26,7 +26,6 @@ class ChromeTest {
 
     @BeforeEach
     void setup() {
-        driver = new ChromeDriver();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
